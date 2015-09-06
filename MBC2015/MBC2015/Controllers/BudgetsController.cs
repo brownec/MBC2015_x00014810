@@ -20,16 +20,6 @@ namespace MBC2015.Controllers
     {
         private MyDbConnection db = new MyDbConnection();
 
-        //// Global variables to be accessed throughout controller methods
-        //double globalTotalIncome = 0;
-        //double globalTotalCarExpenses = 0;
-        //double globalTotalHouseholdExpenses = 0;
-        //double globalTotalPersonalExpenses = 0;
-        //double globalTotalTravelExpenses = 0;
-        //double globalTotalUtilityBillExpenses = 0;
-        //double globalTotalExpenses = 0;
-        //double globalBudgetBalance = 0;
-
         // GET: Budgets
         public ActionResult Index()
         {
@@ -116,7 +106,6 @@ namespace MBC2015.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.BudgetUserId = new SelectList(db.BudgetUsers, "BudgetUserId", "LastName", budget.BudgetUserId);
             return View(budget);
         }
@@ -226,171 +215,8 @@ namespace MBC2015.Controllers
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
 
-            //// -------------------- INCOME --------------------
-            //double totalIncome = 0;
-            //ViewBag.IncomePrimaryAmount = b.IncomePrimaryAmount;
-            //ViewBag.IncomeAdditionalAmount = b.IncomeAdditionalAmount;
-            //// Calculate TotalIncome and set result as globalTotalIncome
-            //// sets totalIncome initially equal to primaryIncome
-            //totalIncome = (double)b.IncomePrimaryAmount;
-            //// if there is Additional Income execute the following
-            //if(b.IncomeAdditionalAmount != null)
-            //{
-            //    totalIncome = (double)b.IncomePrimaryAmount + (double)b.IncomeAdditionalAmount;
-            //}
-            //// pass TotalIncome to Summary.cshtml
-            //ViewBag.TotalIncome = totalIncome;
-            //// totalIncome = globalTotalIncome;
-            //// -------------------- END OF INCOME --------------------
-
-            //// -------------------- CAR EXPENDITURE --------------------
-            //double totalCarExpenses = 0;
-            //ViewBag.CarTaxAmount = b.CarTaxAmount;
-            //ViewBag.CarInsuranceAmount = b.CarInsuranceAmount;
-            //ViewBag.CarMaintenanceAmount = b.CarMaintenanceAmount;
-            //ViewBag.CarFuelAmount = b.CarFuelAmount;
-            //ViewBag.CarNctAmount = b.CarNctAmount;
-            //ViewBag.CarTollChargesAmount = b.CarTollChargesAmount;
-            //ViewBag.CarExpenseOtherAmount = b.CarExpenseOtherAmount;
-            //// Calculate TotalCarExpenses and set result as globalTotalCarExpense
-            //totalCarExpenses = (double)b.CarTaxAmount + (double)b.CarInsuranceAmount + (double)b.CarMaintenanceAmount +
-            //    (double)b.CarFuelAmount + (double)b.CarNctAmount + (double)b.CarTollChargesAmount +
-            //    (double)b.CarExpenseOtherAmount;
-            //// pass TotalCarExpenses to Summary.cshtml
-            //ViewBag.TotalCarExpenses = totalCarExpenses;
-            //// totalCarExpenses = b.TotalCarExpenses;
-            //// -------------------- END OF CAR EXPENDITURE --------------------
-
-            //// -------------------- HOUSEHOLD EXPENDITURE --------------------
-            //double totalHouseholdExpenses = 0;
-            //ViewBag.HouseholdRentMortgageAmount = b.HouseholdRentMortgageAmount;
-            //ViewBag.HouseholdGroceryAmount = b.HouseholdGroceryAmount;
-            //ViewBag.HouseholdClothingAmount = b.HouseholdClothingAmount;
-            //ViewBag.HouseholdEducationFeesAmount = b.HouseholdEducationFeesAmount;
-            //ViewBag.HouseholdSchoolSuppliesAmount = b.HouseholdSchoolSuppliesAmount;
-            //ViewBag.HouseholdMedicalExpensesAmount = b.HouseholdMedicalExpensesAmount;
-            //ViewBag.HouseholdInsuranceAmount = b.HouseholdInsuranceAmount;
-            //ViewBag.HouseholdMaintenanceAmount = b.HouseholdMaintenanceAmount;
-            //ViewBag.HouseholdExpenseOtherAmount = b.HouseholdExpenseOtherAmount;
-            //// Calculate TotalHouseholdExpenses
-            //totalHouseholdExpenses = (double)b.HouseholdRentMortgageAmount + (double)b.HouseholdGroceryAmount +
-            //    (double)b.HouseholdClothingAmount + (double)b.HouseholdEducationFeesAmount +
-            //    (double)b.HouseholdSchoolSuppliesAmount + (double)b.HouseholdMedicalExpensesAmount +
-            //    (double)b.HouseholdInsuranceAmount + (double)b.HouseholdMaintenanceAmount +
-            //    (double)b.HouseholdExpenseOtherAmount;
-            //// pass TotalHouseholdExpenses to Summary.cshtml
-            //ViewBag.TotalHouseholdExpenses = totalHouseholdExpenses;
-            //// totalHouseholdExpenses = globalTotalHouseholdExpenses;
-            //// -------------------- END OF HOUSEHOLD EXPENDITURE --------------------
-
-            //// -------------------- PERSONAL EXPENDITURE --------------------
-            //double totalPersonalExpenses = 0;
-            //ViewBag.PersonalSocialAmount = b.PersonalSocialAmount;
-            //ViewBag.PersonalGymMembershipAmount = b.PersonalGymMembershipAmount;
-            //ViewBag.PersonalSportsExpenseAmount = b.PersonalSportsExpenseAmount;
-            //ViewBag.PersonalHolidayExpenseAmount = b.PersonalHolidayExpenseAmount;
-            //ViewBag.PersonalSavingsAmount = b.PersonalSavingsAmount;
-            //ViewBag.PersonalLoanRepaymentAmount = b.PersonalLoanRepaymentAmount;
-            //ViewBag.PersonalHealthInsuranceAmount = b.PersonalHealthInsuranceAmount;
-            //ViewBag.PersonalExpenseOtherAmount = b.PersonalExpenseOtherAmount;
-            //// Calculate TotalPersonalExpenses and set result as globalTotalPersonalExpenses
-            //totalPersonalExpenses = (double)b.PersonalSocialAmount + (double)b.PersonalGymMembershipAmount +
-            //    (double)b.PersonalSportsExpenseAmount + (double)b.PersonalHolidayExpenseAmount +
-            //    (double)b.PersonalSavingsAmount + (double)b.PersonalLoanRepaymentAmount +
-            //    (double)b.PersonalHealthInsuranceAmount + (double)b.PersonalExpenseOtherAmount;
-            //// pass TotalPersonalExpenses to Summary.cshtml
-            //ViewBag.TotalPersonalExpenses = totalPersonalExpenses;
-            //// totalPersonalExpenses = globalTotalPersonalExpenses;
-            //// -------------------- END OF PERSONAL EXPENDITURE --------------------
-
-            //// -------------------- TRAVEL EXPENDITURE --------------------
-            //double totalTravelExpenses = 0;
-            //ViewBag.TravelBusAmount = b.TravelBusAmount;
-            //ViewBag.TravelLuasAmount = b.TravelLuasAmount;
-            //ViewBag.TravelTaxiAmount = b.TravelTaxiAmount;
-            //ViewBag.TravelTrainAmount = b.TravelTrainAmount;
-            //ViewBag.TravelPlaneAmount = b.TravelPlaneAmount;
-            //ViewBag.TravelExpenseOtherAmount = b.TravelExpenseOtherAmount;
-            //// Calculate TotalTravelExpenses and set result as globalTotalTravelExpenses
-            //totalTravelExpenses = (double)b.TravelBusAmount + (double)b.TravelLuasAmount +
-            //    (double)b.TravelTaxiAmount + (double)b.PersonalHolidayExpenseAmount +
-            //    (double)b.TravelTrainAmount + (double)b.TravelPlaneAmount +
-            //    (double)b.TravelExpenseOtherAmount;
-            //// pass TotalTravelExpenses to Summary.cshtml
-            //ViewBag.TotalTravelExpenses = totalTravelExpenses;
-            //// totalTravelExpenses = globalTotalTravelExpenses;
-            //// -------------------- END OF TRAVEL EXPENDITURE --------------------
-
-            //// -------------------- UTILITY BILL EXPENDITURE --------------------
-            //double totalUtilityBillExpenses = 0;
-            //ViewBag.UtilityBillElectricityAmount = b.UtilityBillElectricityAmount;
-            //ViewBag.UtilityBillGasAmount = b.UtilityBillGasAmount;
-            //ViewBag.UtilityBillRefuseCollectionAmount = b.UtilityBillRefuseCollectionAmount;
-            //ViewBag.UtilityBillIrishWaterAmount = b.UtilityBillIrishWaterAmount;
-            //ViewBag.UtilityBillTVAmount = b.UtilityBillTVAmount;
-            //ViewBag.UtilityBillPhoneBillAmount = b.UtilityBillPhoneBillAmount;
-            //ViewBag.UtilityBillBroadbandAmount = b.UtilityBillBroadbandAmount;
-            //ViewBag.UtilityBillOtherExpenseAmount = b.UtilityBillOtherExpenseAmount;
-            //// Calculate TotalUtilityBillExpenses and set result as globalTotalPersonalExpenses
-            //totalUtilityBillExpenses = (double)b.UtilityBillElectricityAmount + (double)b.UtilityBillGasAmount +
-            //    (double)b.UtilityBillRefuseCollectionAmount + (double)b.UtilityBillIrishWaterAmount +
-            //    (double)b.UtilityBillTVAmount + (double)b.UtilityBillPhoneBillAmount +
-            //    (double)b.UtilityBillBroadbandAmount + (double)b.UtilityBillOtherExpenseAmount;
-            //// pass TotalUtilityBillExpenses to Summary.cshtml
-            //ViewBag.TotalUtilityBillExpenses = totalUtilityBillExpenses;
-            //// totalUtilityBillExpenses = globalTotalUtilityBillExpenses;
-            //// -------------------- END OF UTILITY BILL EXPENDITURE --------------------
-
-            //// -------------------- SUBTOTAL CALCULATION -------------------- 
-            //// INCOME - same as TotalIncome calculated above
-            //// -------------------- TOTAL EXPENSES CALCULATION --------------------
-            //double totalExpenses = 0;
-            //totalExpenses = (double)totalCarExpenses + (double)totalHouseholdExpenses +
-            //    (double)totalPersonalExpenses + (double)totalTravelExpenses +
-            //    (double)totalUtilityBillExpenses;
-            //ViewBag.TotalExpenses = totalExpenses;
-            //// totalExpenses = globalTotalExpenses;
-            //// -------------------- BUDGET BALANCE CALCULATION --------------------
-            //double budgetBalance = 0;
-            //budgetBalance = (double)totalIncome - (double)totalExpenses;
-            //ViewBag.BudgetBalance = budgetBalance;
-            //// budgetBalance = globalBudgetBalance;
             return View(b);
         }
-
-        //// ******************** COMPLEXITY CALCULATIONS ********************
-        //// find the lowest Budget Balance
-        ///* idea to return budget balances with lowest balance
-        //   and display
-        // * i)assign 1st element in array as minimum value
-        // * ii)loop through array and compare each element in the array
-        // * iii)if accessed variable value less than current minimum value, replace
-        //*/
-        //int index;
-        //public int findMinimumBudgetBalance(int[] budgetBal)
-        //{
-        //    int minimumBudgetBalance = budgetBal[0]; // assign first value in array as minimumBudgetBalance
-        //    for(int i = 0; i < budgetBal.Length-1; i++) // begin loop
-        //        if (budgetBal[index] < minimumBudgetBalance) // compare each element accessed in array
-        //            minimumBudgetBalance = budgetBal[index]; // replace minimumBudgetBalance with lower value if found
-        //    return minimumBudgetBalance; 
-        //}
-
-        //// find the highest Budget Balance
-        ///* idea to return budget balances with highest balance
-        //   and display
-        // * i)assign 1st array element to variable that stores maximum value
-        // * ii)loop through array comparing each element with value stored in variable
-        // * iii)replace current value if accessed value is greater
-        //*/
-        //public int findMaximumBudgetBalance(int[] budgetBal)
-        //{
-        //    int maximumBudgetBalance = budgetBal[0]; // assign first value in array as maximumBudgetBalance
-        //    for(int i = 0; i < budgetBal.Length - 1; i++) // begin loop
-        //        if (budgetBal[index] > maximumBudgetBalance) // compare each element in array
-        //            maximumBudgetBalance = budgetBal[index]; // replace maximumBudgetBalance with higher value if found
-        //    return maximumBudgetBalance;
-        //}
 
         // ******************** BUDGET ANALYSIS FORECAST ********************
         public ActionResult Forecast(int? id)
@@ -399,21 +225,12 @@ namespace MBC2015.Controllers
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
 
             var buds = from e in db.Budgets where e.BudgetUserId == id select e;
-
-            //Budget b = new Budget();
-            //// return list of budgets specific to one user
-            //b = db.Budgets.Where(user => user.BudgetUserId == id).SingleOrDefault();
-
             return View(b);
         }
 
         // ******************** INDIVIDUAL BUDGET ANALYSIS CHARTS ********************
         public ActionResult Charts(int? id)
         {
-            //BudgetUser u = new BudgetUser();
-            //// return list of budgets specific to one user
-            //u = db.BudgetUsers.Where(user => user.BudgetUserId == id).SingleOrDefault();
-
             //var total = from e in db.Budgets where e.BudgetUserId == id select e;
             Budget bud = new Budget();
             bud = db.Budgets.Where(b => b.BudgetId == id).SingleOrDefault();
@@ -568,7 +385,7 @@ namespace MBC2015.Controllers
                 Y = 70,
                 BorderWidth = 0
             })
-                //.SetSeries based on Budget Balance objects
+            //.SetSeries based on Budget Balance objects
              .SetSeries(new[]
             {
                 new Series{Name = "Balance", Data = new Data(budBal)}
@@ -576,7 +393,7 @@ namespace MBC2015.Controllers
             .SetCredits(new Credits
             {
                 Enabled = false
-            }); // remove hyperlink for highchart
+            }); 
             // -------------------------- END BUDGET BALANCE CHART ------------------------
             // ----------------------------------------------------------------------------
 
@@ -602,6 +419,7 @@ namespace MBC2015.Controllers
                 household[c6] = item.TotalHouseholdExpenses;
                 c6++;
             }
+
             // PERSONAL
             object[] personal = new object[size];
             int c7 = 0;
@@ -610,6 +428,7 @@ namespace MBC2015.Controllers
                 personal[c7] = item.TotalPersonalExpenses;
                 c7++;
             }
+
             // TRAVEL
             object[] travel = new object[size];
             int c8 = 0;
@@ -618,6 +437,7 @@ namespace MBC2015.Controllers
                 travel[c8] = item.TotalTravelExpenses;
                 c8++;
             }
+
             // UTILITY BILLS
             object[] utilityBill = new object[size];
             int c9 = 0;
@@ -654,14 +474,7 @@ namespace MBC2015.Controllers
                 })
                 .SetLegend(new Legend
                 {
-                    //Layout = Layouts.Vertical,
-                    //Align = HorizontalAligns.Right,
-                    //VerticalAlign = VerticalAligns.Top,
-                    //X = 100,
-                    Y = 10,
-                    //Floating = true,
-                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF")),
-                    //Shadow = true
+                   Y = 10,
                 })
                 .SetPlotOptions(new PlotOptions
                 {
@@ -682,7 +495,7 @@ namespace MBC2015.Controllers
                 .SetCredits(new Credits
                 {
                     Enabled = false
-                }); // remove hyperlink for highchart
+                });
             // ---------------------------- END OF COLUMN CHART ----------------------------
             // -----------------------------------------------------------------------------
             return View(new Container(new[] { chart1, chart2, chart3 }));
