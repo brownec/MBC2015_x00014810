@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNet.Highcharts">
+      <HintPath>..\packages\DotNet.Highcharts.4.0\lib\DotNet.Highcharts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -431,6 +434,7 @@
     <Content Include="Views\BudgetUsers\Edit.cshtml" />
     <Content Include="Views\BudgetUsers\Forecast.cshtml" />
     <Content Include="Views\BudgetUsers\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

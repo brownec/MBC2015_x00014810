@@ -3,52 +3,69 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Monthly Budget Calculator</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @*<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>*@
     @Scripts.Render("~/bundles/modernizr")
 
-    <script type="text/javascript">
-        var appInsights=window.appInsights||function(config){
-            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
-        }({
-            instrumentationKey:"c1c2aea9-5f66-4e00-9766-2eec22313f21"
-        });
-        
-        window.appInsights=appInsights;
-        appInsights.trackPageView();
-    </script>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">*@
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Budget Calculator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+
+            @*<div class="navbar-collapse collapse">*@
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false"
+                           href="#" data-toggle="dropdown">Users<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Add New User", "Create", "BudgetUsers")</li>
+                            <li>@Html.ActionLink("Application Users", "Index", "BudgetUsers")</li>
+                        </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("View Budgets", "Index", "Budgets")</li>
+
+                    @*<li class="dropdown">
+                            <a class="dropdown-toggle" role="button" aria-expanded="false"
+                               href="#" data-toggle="dropdown">My Budgets<span class="caret"></span></a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("View Budgets", "Index", "Budgets")</li>
+                            </ul>
+                        </li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year | Monthly Budget Calculator | Cliff Browne | @Html.ActionLink("Contact", "Contact", "Home")</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @*<script src="~/Scripts/Highcharts-4.0.1/js/highcharts-all.js"></script>*@
 </body>
 </html>
