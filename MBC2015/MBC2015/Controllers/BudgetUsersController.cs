@@ -292,14 +292,7 @@ namespace MBC2015.Controllers
             // ----------------------------------------------------------------------------
 
             // ******************* COLUMN BAR CHART - TOTAL EXPENDITURE (Month on Month) **********
-            // Budget Names
-            //String[] budgetNames = new string[size];
-            //int c10 = 0;
-            //foreach (var item in total)
-            //{
-            //    budgetNames[c10] = item.BudgetName;
-            //    c10++;
-            //}
+        
             // CAR
             var carExpenseTotal = 0.0;
             object[] car = new object[size];
@@ -313,6 +306,7 @@ namespace MBC2015.Controllers
             // calculate average of Car Expense
             ViewBag.carAverage = carExpenseTotal / size;
             ViewBag.size = size;
+
             // HOUSEHOLD
             object[] household = new object[size];
             int c6 = 0;
@@ -321,6 +315,7 @@ namespace MBC2015.Controllers
                 household[c6] = item.TotalHouseholdExpenses;
                 c6++;
             }
+
             // PERSONAL
             object[] personal = new object[size];
             int c7 = 0;
@@ -329,6 +324,7 @@ namespace MBC2015.Controllers
                 personal[c7] = item.TotalPersonalExpenses;
                 c7++;
             }
+
             // TRAVEL
             object[] travel = new object[size];
             int c8 = 0;
@@ -337,6 +333,7 @@ namespace MBC2015.Controllers
                 travel[c8] = item.TotalTravelExpenses;
                 c8++;
             }
+
             // UTILITY BILLS
             object[] utilityBill = new object[size];
             int c9 = 0;
@@ -421,7 +418,8 @@ namespace MBC2015.Controllers
             var total = from e in db.Budgets where e.BudgetUserId == id select e;
             int size = total.Count();
 
-            // ******************* COLUMN BAR CHART - TOTAL EXPENDITURE (Month on Month) **********
+            // ------------------- CHART AND FORECAST CALCULATIONS FOR BUDGET ANALYSIS CHARTS ------------------- 
+            // ******************* COLUMN BAR CHART - TOTAL EXPENDITURE (Month on Month) *******************
             // Budget Names
             String[] budgetNames = new string[size];
             int c1 = 0;
@@ -430,6 +428,7 @@ namespace MBC2015.Controllers
                 budgetNames[c1] = item.BudgetName;
                 c1++;
             }
+
             // Income
             object[] income = new object[size];
             int c2 = 0;
@@ -475,8 +474,7 @@ namespace MBC2015.Controllers
             // calculate average of the household expenses for all user budgets
             ViewBag.householdAverage = householdExpenseTotal / size;
             ViewBag.size = size;
-
-
+            
             // PERSONAL
             var personalExpenseTotal = 0.0;
             object[] personal = new object[size];
