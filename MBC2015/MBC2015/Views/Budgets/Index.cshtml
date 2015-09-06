@@ -339,8 +339,8 @@
                     <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Budget Analysis Summary", "Summary", new {id = item.BudgetId})</li>
-                        <li>@Html.ActionLink("Budget Analysis Charts", "Charts", new { id = item.BudgetId })</li>
-                        <li>@Html.ActionLink("Budget Analysis Forecast", "Forecast", new { id = item.BudgetId })</li>
+                        @*<li>@Html.ActionLink("Budget Analysis Charts", "Charts", new { id = item.BudgetId })</li>
+                        <li>@Html.ActionLink("Budget Analysis Forecast", "Forecast", new { id = item.BudgetId })</li>*@
                         <li>@Html.ActionLink("Budget Details", "Details", new { id = item.BudgetId })</li>
                         <li>@Html.ActionLink("Edit Budget", "Edit", new { id = item.BudgetId })</li>
                         <li>@Html.ActionLink("Delete Budget", "Delete", new { id = item.BudgetId })</li>
