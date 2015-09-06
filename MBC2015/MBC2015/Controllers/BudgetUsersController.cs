@@ -412,14 +412,6 @@ namespace MBC2015.Controllers
         }
 
 
-
-
-
-
-
-
-
-
         public ActionResult Forecast(int? id)
         {
             BudgetUser u = new BudgetUser();
@@ -454,6 +446,7 @@ namespace MBC2015.Controllers
                 expenditure1[c3] = item.TotalExpenses;
                 c3++;
             }
+
             // CAR
             var carExpenseTotal = 0.0;
             object[] car = new object[size];
@@ -464,41 +457,67 @@ namespace MBC2015.Controllers
                 carExpenseTotal += (double)item.TotalCarExpenses;
                 c5++;
             }
-            // calculate average of Car Expense
+
+            // calculate average of car expenses for all user budgets
             ViewBag.carAverage = carExpenseTotal / size;
             ViewBag.size = size;
+
             // HOUSEHOLD
+            var householdExpenseTotal = 0.0;
             object[] household = new object[size];
             int c6 = 0;
             foreach (var item in total)
             {
                 household[c6] = item.TotalHouseholdExpenses;
+                householdExpenseTotal += (double)item.TotalHouseholdExpenses;
                 c6++;
             }
+            // calculate average of the household expenses for all user budgets
+            ViewBag.householdAverage = householdExpenseTotal / size;
+            ViewBag.size = size;
+
+
             // PERSONAL
+            var personalExpenseTotal = 0.0;
             object[] personal = new object[size];
             int c7 = 0;
             foreach (var item in total)
             {
                 personal[c7] = item.TotalPersonalExpenses;
+                personalExpenseTotal += (double)item.TotalPersonalExpenses;
                 c7++;
             }
+            // calculate average of the personal expenses for all user budgets
+            ViewBag.personalAverage = personalExpenseTotal / size;
+            ViewBag.size = size;
+            
             // TRAVEL
+            var travelExpenseTotal = 0.0;
             object[] travel = new object[size];
             int c8 = 0;
             foreach (var item in total)
             {
                 travel[c8] = item.TotalTravelExpenses;
+                travelExpenseTotal += (double)item.TotalTravelExpenses;
                 c8++;
             }
+            // calculate average of the travel expenses for all user budgets
+            ViewBag.travelAverage = travelExpenseTotal / size;
+            ViewBag.size = size;
+
             // UTILITY BILLS
+            var utilityBillExpenseTotal = 0.0;
             object[] utilityBill = new object[size];
             int c9 = 0;
             foreach (var item in total)
             {
                 utilityBill[c9] = item.TotalUtilityBillExpenses;
+                utilityBillExpenseTotal += (double)item.TotalUtilityBillExpenses;
                 c9++;
             }
+            // calculate average of the utility bill expenses for all user budgets
+            ViewBag.utilityBillAverage = utilityBillExpenseTotal / size;
+            ViewBag.size = size;
 
             Highcharts chart3 = new Highcharts("chart3")
                 .InitChart(new Chart
