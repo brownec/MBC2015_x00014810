@@ -1,0 +1,305 @@
+﻿@model MBC2015.Models.Budget
+@{
+    ViewBag.Title = "Summary";
+}
+<div>
+    <br />
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Saved Budgets", "Index", "Budgets")</a>
+</div>
+<h4 class="text-info">Budget Analysis Summary Table</h4>
+<h6>* Click (+) for breakdown of Income and Expenditure</h6>
+
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr class="info">
+            <th>Budget Details</th>
+            <th>Income €</th>
+            <th>Expenses €</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- INCOME -->
+        <tr class="clickable" data-toggle="collapse" id="income" data-target=".income">
+            <td><i class="glyphicon glyphicon-plus"> Income</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse income">
+            <td>Primary Income</td>
+            <td>@Html.DisplayFor(model => model.IncomePrimaryAmount)</td>
+            <td>0.00</td>
+        </tr>
+        <tr class="collapse income">
+            <td>Additional Income</td>
+            <td>@Html.DisplayFor(model => model.IncomeAdditionalAmount)</td>
+            <td>0.00</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Income</th>
+            <th>@Html.DisplayFor(model => model.TotalIncome)</th>
+            <th>0.00</th>
+        </tr>
+
+        <!-- CAR EXPENDITURE -->
+        <tr class="clickable" data-toggle="collapse" id="carExpenses" data-target=".carExpenses">
+            <td><i class="glyphicon glyphicon-plus"> Car Expenditure</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Car Tax</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarTaxAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Car Insurance</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarInsuranceAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Car Maintenance</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarMaintenanceAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Fuel</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarFuelAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>NCT</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarNctAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Toll Charges</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarTollChargesAmount)</td>
+        </tr>
+        <tr class="collapse carExpenses">
+            <td>Other</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.CarExpenseOtherAmount)</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Car Expenditure</th>
+            <th>0.00</th>
+            <th>@Html.DisplayFor(model => model.TotalCarExpenses)</th>
+        </tr>
+
+        <!-- HOUSEHOLD EXPENDITURE -->
+        <tr class="clickable" data-toggle="collapse" id="householdExpenses" data-target=".householdExpenses">
+            <td><i class="glyphicon glyphicon-plus"> Household Expenditure</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Rent/Mortgage</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdRentMortgageAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Groceries/Dining Out</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdGroceryAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Clothing</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdClothingAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Education Fees</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdEducationFeesAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>School Supplies</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdSchoolSuppliesAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Medical Bills</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdMedicalExpensesAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Household Insurance</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdInsuranceAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Household Maintenance</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdMaintenanceAmount)</td>
+        </tr>
+        <tr class="collapse householdExpenses">
+            <td>Other</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdExpenseOtherAmount)</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Household Expenditure</th>
+            <th>0.00</th>
+            <th>@Html.DisplayFor(model => model.TotalHouseholdExpenses)</th>
+        </tr>
+
+        <!-- PERSONAL EXPENDITURE -->
+        <tr class="clickable" data-toggle="collapse" id="personalExpenses" data-target=".personalExpenses">
+            <td><i class="glyphicon glyphicon-plus"> Personal Expenditure</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Social</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalSocialAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Gym Membership</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalGymMembershipAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Sports and Leisure</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalSportsExpenseAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Holiday</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalHolidayExpenseAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Savings</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalSavingsAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Loan Repayment</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.PersonalLoanRepaymentAmount)</td>
+        </tr>
+        <tr class="collapse personalExpenses">
+            <td>Other</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.HouseholdExpenseOtherAmount)</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Personal Expenditure</th>
+            <th>0.00</th>
+            <th>@Html.DisplayFor(model => model.TotalPersonalExpenses)</th>
+        </tr>
+
+        <!-- TRAVEL EXPENDITURE -->
+        <tr class="clickable" data-toggle="collapse" id="travelExpenses" data-target=".travelExpenses">
+            <td><i class="glyphicon glyphicon-plus"> Travel Expenditure</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Bus</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelBusAmount)</td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Luas</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelLuasAmount)</td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Taxi</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelTaxiAmount)</td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Train</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelTrainAmount)</td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Plane</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelPlaneAmount)</td>
+        </tr>
+        <tr class="collapse travelExpenses">
+            <td>Other</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.TravelExpenseOtherAmount)</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Travel Expenditure</th>
+            <th>0.00</th>
+            <th>@Html.DisplayFor(model => model.TotalTravelExpenses)</th>
+        </tr>
+
+        <!-- UTILITY BILL EXPENDITURE -->
+        <tr class="clickable" data-toggle="collapse" id="utilityBillExpenses" data-target=".utilityBillExpenses">
+            <td><i class="glyphicon glyphicon-plus"> Utility Bill Expenditure</i></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Electricity</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillElectricityAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Gas</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillGasAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Refuse/Waste Collection</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillRefuseCollectionAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Irish Water</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillIrishWaterAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Television</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillTVAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Phone/Mobile</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillPhoneBillAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Broadband</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillBroadbandAmount)</td>
+        </tr>
+        <tr class="collapse utilityBillExpenses">
+            <td>Other</td>
+            <td>0.00</td>
+            <td>@Html.DisplayFor(model => model.UtilityBillOtherExpenseAmount)</td>
+        </tr>
+        <tr class="warning">
+            <th>Total Utility Bill Expenditure</th>
+            <th>0.00</th>
+            <th>@Html.DisplayFor(model => model.TotalUtilityBillExpenses)</th>
+        </tr>
+
+    </tbody>
+
+    <!-- Budget Subtotal (display total income and expenditure(car+household+personal+travel+utility)) -->
+    <tr class="danger">
+        <th>Subtotal (Income and Expenditure)</th>
+        <th>@Html.DisplayFor(model => model.TotalIncome)</th>
+        <th>@Html.DisplayFor(model => model.TotalExpenses)</th>
+    </tr>
+    <!-- Budget Balance (total income - total expenditure) -->
+    <tr class="success">
+        <th><h5>Budget Balance (+/-)</h5></th>
+        <th></th>
+        <th>@Html.DisplayFor(model => model.BudgetBalance)</th>
+    </tr>
+
+</table>
+<h6>*Note: Negative balances will appear with a minus (-) in front of the Budget Balance amount</h6>

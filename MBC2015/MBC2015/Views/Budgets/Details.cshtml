@@ -1,0 +1,418 @@
+﻿@model MBC2015.Models.Budget
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <br />
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Saved Budgets", "Index", "Budgets")</a>
+</div>
+<h5 class="text-info">Budget Information</h5>
+<h6>*Budget Information as entered by application user</h6>
+
+<div>
+    <dl class="dl-horizontal">
+        @*<dt>
+                @Html.DisplayNameFor(model => model.BudgetUser.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BudgetUser.LastName)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEndDate)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomePrimaryAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomePrimaryAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeAdditionalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeAdditionalAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalIncome)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalIncome)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.CarTaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarTaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarInsuranceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarInsuranceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarMaintenanceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarMaintenanceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarFuelAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarFuelAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarNctAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarNctAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarTollChargesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarTollChargesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarExpenseOtherAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarExpenseOtherAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalCarExpenses)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalCarExpenses)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdRentMortgageAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdRentMortgageAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdGroceryAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdGroceryAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdClothingAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdClothingAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdEducationFeesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdEducationFeesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdSchoolSuppliesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdSchoolSuppliesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdMedicalExpensesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdMedicalExpensesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdInsuranceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdInsuranceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdMaintenanceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdMaintenanceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdExpenseOtherAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdExpenseOtherAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalHouseholdExpenses)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalHouseholdExpenses)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalSocialAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalSocialAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalGymMembershipAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalGymMembershipAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalSportsExpenseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalSportsExpenseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalHolidayExpenseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalHolidayExpenseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalSavingsAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalSavingsAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalLoanRepaymentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalLoanRepaymentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalHealthInsuranceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalHealthInsuranceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalExpenseOtherAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalExpenseOtherAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalPersonalExpenses)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalPersonalExpenses)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelBusAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelBusAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelLuasAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelLuasAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelTaxiAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelTaxiAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelTrainAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelTrainAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelPlaneAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelPlaneAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelExpenseOtherAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelExpenseOtherAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalTravelExpenses)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalTravelExpenses)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillElectricityAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillElectricityAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillGasAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillGasAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillRefuseCollectionAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillRefuseCollectionAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillIrishWaterAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillIrishWaterAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillTVAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillTVAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillPhoneBillAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillPhoneBillAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillBroadbandAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillBroadbandAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityBillOtherExpenseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityBillOtherExpenseAmount)
+        </dd>
+
+        <dt class="text-primary">
+            @Html.DisplayNameFor(model => model.TotalUtilityBillExpenses)
+        </dt>
+
+        <dd class="text-primary">
+            @Html.DisplayFor(model => model.TotalUtilityBillExpenses)
+        </dd>
+
+    </dl>
+</div>
+<a class="btn btn-primary btn-xs" @Html.ActionLink("Back to Top", "Details", "Budgets")</a>

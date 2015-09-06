@@ -1,0 +1,20 @@
+﻿@Scripts.Render("~/bundles/jQuery")
+@model DotNet.Highcharts.Container
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Highcharts-4.0.1/js/highcharts.js"></script>
+@*@model IEnumerable<MonthlyBudgetCalculator.Models.Budget>*@
+@{
+    ViewBag.Title = "Charts";
+}
+<p>
+    <br />
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Application Users", "Index", "BudgetUsers")</a>
+</p>
+<h5 class="text-info">Budget Analysis Charts</h5>
+<h6>*Budget Analysis for all Budgets based on Income, Expenditure and Overall Budget Balance</h6>
+
+@(Model)
+
+
