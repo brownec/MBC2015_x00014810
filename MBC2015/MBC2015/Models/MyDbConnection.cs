@@ -1,9 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿/*
+Student Name: 	Cliff Browne
+Student ID:		X00014810
+Module:			Project 4th Year
+Course:			Computing
+College:		I.T Tallaght, Dublin
+*/
+
 using System.Data.Entity;
-using MBC2015.Models;
 
 namespace MBC2015.Models
 {

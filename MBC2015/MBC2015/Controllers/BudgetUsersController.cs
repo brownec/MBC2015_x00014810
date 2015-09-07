@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿/*
+Student Name: 	Cliff Browne
+Student ID:		X00014810
+Module:			Project 4th Year
+Course:			Computing
+College:		I.T Tallaght, Dublin
+*/
+
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
@@ -130,8 +135,7 @@ namespace MBC2015.Controllers
 
             var total = from e in db.Budgets where e.BudgetUserId == id select e;
             int size = total.Count();
-            // System.Diagnostics.Debug.WriteLine("size: " + size);
-
+            
             // ******************** TOTAL INCOME/EXPENDITURE CHART ********************
             object[] income = new object[size];
             int c1 = 0;
@@ -208,7 +212,7 @@ namespace MBC2015.Controllers
                 Y = 70,
                 BorderWidth = 0
             })
-                //.SetSeries based on totalIncome(income) and totalExpenditure(expenditure1) objects
+            //.SetSeries based on totalIncome(income) and totalExpenditure(expenditure1) objects
             .SetSeries(new[]
             {
                 new Series {Name = "Total Income", Data = new Data(income)},
@@ -216,11 +220,10 @@ namespace MBC2015.Controllers
             })
             .SetCredits(new Credits
             {
-                Enabled = false // remove hyperlink for highchart
+                Enabled = false
             });
             // -------------------- END TOTAL INCOME/EXPENDITURE CHART --------------------
-            // ----------------------------------------------------------------------------
-
+            
             // ******************** BUDGET BALANCE CHART ********************
             object[] budBal = new object[size];
             int c4 = 0;
@@ -279,7 +282,7 @@ namespace MBC2015.Controllers
                 Y = 70,
                 BorderWidth = 0
             })
-                //.SetSeries based on Budget Balance objects
+             //.SetSeries based on Budget Balance objects
              .SetSeries(new[]
             {
                 new Series{Name = "Balance", Data = new Data(budBal)}
@@ -287,12 +290,10 @@ namespace MBC2015.Controllers
             .SetCredits(new Credits
             {
                 Enabled = false
-            }); // remove hyperlink for highchart
+            });
             // -------------------------- END BUDGET BALANCE CHART ------------------------
-            // ----------------------------------------------------------------------------
-
+           
             // ******************* COLUMN BAR CHART - TOTAL EXPENDITURE (Month on Month) **********
-        
             // CAR
             var carExpenseTotal = 0.0;
             object[] car = new object[size];
@@ -370,14 +371,7 @@ namespace MBC2015.Controllers
                 })
                 .SetLegend(new Legend
                 {
-                    //Layout = Layouts.Vertical,
-                    //Align = HorizontalAligns.Right,
-                    //VerticalAlign = VerticalAligns.Top,
-                    //X = 100,
                     Y = 10,
-                    //Floating = true,
-                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF")),
-                    //Shadow = true
                 })
                 .SetPlotOptions(new PlotOptions
                 {
@@ -389,8 +383,6 @@ namespace MBC2015.Controllers
                 })
                 .SetSeries(new[]
                 {
-                    // new Series { Name = "Monthly Income", Data = new Data(income)},
-                    // new Series { Name = "Monthly Expenditure", Data = new Data(expenditure1)}
                     new Series { Name = "Car Expenses", Data = new Data(car)},
                     new Series { Name = "Household Expenses", Data = new Data(household)},
                     new Series { Name = "Personal Expenses", Data = new Data(personal)},
@@ -400,14 +392,11 @@ namespace MBC2015.Controllers
                 .SetCredits(new Credits
                 {
                     Enabled = false
-                }); // remove hyperlink for highchart
+                });
             // ---------------------------- END OF COLUMN CHART ----------------------------
-            // -----------------------------------------------------------------------------
-
-
+            
             return View(new Container(new[] { chart1, chart2, chart3 }));
         }
-
 
         public ActionResult Forecast(int? id)
         {
@@ -544,14 +533,7 @@ namespace MBC2015.Controllers
                 })
                 .SetLegend(new Legend
                 {
-                    //Layout = Layouts.Vertical,
-                    //Align = HorizontalAligns.Right,
-                    //VerticalAlign = VerticalAligns.Top,
-                    //X = 100,
                     Y = 10,
-                    //Floating = true,
-                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF")),
-                    //Shadow = true
                 })
                 .SetPlotOptions(new PlotOptions
                 {
@@ -565,19 +547,13 @@ namespace MBC2015.Controllers
                 {
                     new Series { Name = "Monthly Income", Data = new Data(income)},
                     new Series { Name = "Monthly Expenditure", Data = new Data(expenditure1)}
-                    //new Series { Name = "Car Expenses", Data = new Data(car)},
-                    //new Series { Name = "Household Expenses", Data = new Data(household)},
-                    //new Series { Name = "Personal Expenses", Data = new Data(personal)},
-                    //new Series { Name = "Travel Expenses", Data = new Data(travel)},
-                    //new Series { Name = "Utility Bill Expenses", Data = new Data(utilityBill)}
                 })
                 .SetCredits(new Credits
                 {
                     Enabled = false
-                }); // remove hyperlink for highchart
+                });
             // ---------------------------- END OF COLUMN CHART ----------------------------
-            // -----------------------------------------------------------------------------
-
+            
             // DRILLDOWN
             string[] categories = { "Income", "Expenditure" };
             const string NAME = "Forecast";

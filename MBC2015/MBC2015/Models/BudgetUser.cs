@@ -1,12 +1,15 @@
-﻿using System;
+﻿/*
+Student Name: 	Cliff Browne
+Student ID:		X00014810
+Module:			Project 4th Year
+Course:			Computing
+College:		I.T Tallaght, Dublin
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using MBC2015.Models;
 
 namespace MBC2015.Models
 {
@@ -54,7 +57,6 @@ namespace MBC2015.Models
         [Display(Name = "Town")]
         public String Town { get; set; }
 
-        // [StringLength(50, ErrorMessage = "County cannot be more than 50 characters.")]
         [Display(Name = "County")]
         public Counties Counties { get; set; }
 

@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿/*
+Student Name: 	Cliff Browne
+Student ID:		X00014810
+Module:			Project 4th Year
+Course:			Computing
+College:		I.T Tallaght, Dublin
+*/
+
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
-using Point = DotNet.Highcharts.Options.Point;
 using System.Drawing;
 using MBC2015.Models;
 
@@ -42,7 +46,7 @@ namespace MBC2015.Controllers
             return View(budget);
         }
 
-        //// GET: Budgets/Create
+        // GET: Budgets/Create
         public ActionResult Create(int id)
         {
             Budget b = new Budget();
@@ -236,8 +240,7 @@ namespace MBC2015.Controllers
             bud = db.Budgets.Where(b => b.BudgetId == id).SingleOrDefault();
             var total = from e in db.Budgets where e.BudgetUserId == id select e;
             int size = total.Count();
-            // System.Diagnostics.Debug.WriteLine("size: " + size);
-
+            
             // ******************** TOTAL INCOME/EXPENDITURE CHART ********************
             object[] income = new object[size];
             int c1 = 0;
@@ -325,8 +328,7 @@ namespace MBC2015.Controllers
                 Enabled = false
             });
             // -------------------- END TOTAL INCOME/EXPENDITURE CHART --------------------
-            // ----------------------------------------------------------------------------
-
+            
             // ******************** BUDGET BALANCE CHART ********************
             object[] budBal = new object[size];
             int c4 = 0;
@@ -395,8 +397,7 @@ namespace MBC2015.Controllers
                 Enabled = false
             }); 
             // -------------------------- END BUDGET BALANCE CHART ------------------------
-            // ----------------------------------------------------------------------------
-
+            
             // ******************* COLUMN BAR CHART - TOTAL EXPENDITURE (Month on Month) **********
             // CAR
             var carExpenseTotal = 0.0;
@@ -497,8 +498,7 @@ namespace MBC2015.Controllers
                     Enabled = false
                 });
             // ---------------------------- END OF COLUMN CHART ----------------------------
-            // -----------------------------------------------------------------------------
-            return View(new Container(new[] { chart1, chart2, chart3 }));
+           return View(new Container(new[] { chart1, chart2, chart3 }));
         }
 
         protected override void Dispose(bool disposing)
