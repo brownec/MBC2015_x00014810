@@ -285,7 +285,6 @@
             <th>0.00</th>
             <th>@Html.DisplayFor(model => model.TotalUtilityBillExpenses)</th>
         </tr>
-
     </tbody>
 
     <!-- Budget Subtotal (display total income and expenditure(car+household+personal+travel+utility)) -->
@@ -294,12 +293,12 @@
         <th>@Html.DisplayFor(model => model.TotalIncome)</th>
         <th>@Html.DisplayFor(model => model.TotalExpenses)</th>
     </tr>
+
     <!-- Budget Balance (total income - total expenditure) -->
     <tr class="success">
         <th><h5>Budget Balance (+/-)</h5></th>
         <th></th>
         <th>@Html.DisplayFor(model => model.BudgetBalance)</th>
     </tr>
-
 </table>
 <h6>*Note: Negative balances will appear with a minus (-) in front of the Budget Balance amount</h6>
