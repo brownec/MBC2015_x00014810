@@ -1,4 +1,12 @@
-﻿using MBC2015.Models;
+﻿/*
+Student Name: 	Cliff Browne
+Student ID:		X00014810
+Module:			Project 4th Year
+Course:			Computing
+College:		I.T Tallaght, Dublin
+*/
+
+using MBC2015.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +20,6 @@ namespace MBC2015.Models
     {
         [Display(Name = "Budget ID")]
         public int BudgetId { get; set; }
-
-        //[Display(Name = "User ID")]
-        //public int BudgetUserId { get; set; }
 
         [Display(Name = "Budget Name")]
         public String BudgetName { get; set; }
@@ -32,7 +37,6 @@ namespace MBC2015.Models
         public DateTime? BudgetEndDate { get; set; }
 
         // ---------- INCOME ----------
-        // ----------------------------
         [Required(ErrorMessage = "Must include Primary Income value!")]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
@@ -50,7 +54,6 @@ namespace MBC2015.Models
         public double TotalIncome { get; set; }
 
         // ---------- CAR EXPENDITURE ----------
-        // -------------------------------------
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Car Tax")]
@@ -92,7 +95,6 @@ namespace MBC2015.Models
         public double TotalCarExpenses { get; set; }
 
         // ---------- HOUSEHOLD EXPENDITURE ----------
-        // -------------------------------------------
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Rent/Mortgage")]
@@ -144,7 +146,6 @@ namespace MBC2015.Models
         public double TotalHouseholdExpenses { get; set; }
 
         // ---------- PERSONAL EXPENDITURE ----------
-        // ------------------------------------------
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Social")]
@@ -191,7 +192,6 @@ namespace MBC2015.Models
         public double TotalPersonalExpenses { get; set; }
 
         // ---------- TRAVEL EXPENDITURE ----------
-        // ----------------------------------------
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Bus")]
@@ -228,7 +228,6 @@ namespace MBC2015.Models
         public double TotalTravelExpenses { get; set; }
 
         // ---------- UTILITY BILLS EXPENDITURE ----------
-        // -----------------------------------------------
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Electricity")]

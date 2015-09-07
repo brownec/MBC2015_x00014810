@@ -42,7 +42,7 @@ namespace MBC2015.Controllers
             return View(budget);
         }
 
-        // GET: Budgets/Create
+        //// GET: Budgets/Create
         public ActionResult Create(int id)
         {
             Budget b = new Budget();
@@ -50,7 +50,7 @@ namespace MBC2015.Controllers
             // ViewBag.BudgetUserId = new SelectList(db.BudgetUsers, "BudgetUserId", "LastName");
             return View(b);
         }
-
+         
         // POST: Budgets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -59,6 +59,7 @@ namespace MBC2015.Controllers
         public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate,BudgetEndDate,IncomePrimaryAmount,IncomeAdditionalAmount,CarTaxAmount,CarInsuranceAmount,CarMaintenanceAmount,CarFuelAmount,CarNctAmount,CarTollChargesAmount,CarExpenseOtherAmount,HouseholdRentMortgageAmount,HouseholdGroceryAmount,HouseholdClothingAmount,HouseholdEducationFeesAmount,HouseholdSchoolSuppliesAmount,HouseholdMedicalExpensesAmount,HouseholdInsuranceAmount,HouseholdMaintenanceAmount,HouseholdExpenseOtherAmount,PersonalSocialAmount,PersonalGymMembershipAmount,PersonalSportsExpenseAmount,PersonalHolidayExpenseAmount,PersonalSavingsAmount,PersonalLoanRepaymentAmount,PersonalHealthInsuranceAmount,PersonalExpenseOtherAmount,TravelBusAmount,TravelLuasAmount,TravelTaxiAmount,TravelTrainAmount,TravelPlaneAmount,TravelExpenseOtherAmount,UtilityBillElectricityAmount,UtilityBillGasAmount,UtilityBillRefuseCollectionAmount,UtilityBillIrishWaterAmount,UtilityBillTVAmount,UtilityBillPhoneBillAmount,UtilityBillBroadbandAmount,UtilityBillOtherExpenseAmount")] Budget budget, int id)
         {
             budget.BudgetUserId = id;
+
             // Calculate TotalIncome
             budget.TotalIncome = (double)budget.IncomePrimaryAmount + (double)budget.IncomeAdditionalAmount;
 
@@ -214,7 +215,6 @@ namespace MBC2015.Controllers
         {
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
-
             return View(b);
         }
 
@@ -314,7 +314,7 @@ namespace MBC2015.Controllers
                 Y = 70,
                 BorderWidth = 0
             })
-                //.SetSeries based on totalIncome(income) and totalExpenditure(expenditure1) objects
+            //.SetSeries based on totalIncome(income) and totalExpenditure(expenditure1) objects
             .SetSeries(new[]
             {
                 new Series {Name = "Total Income", Data = new Data(income)},
@@ -322,7 +322,7 @@ namespace MBC2015.Controllers
             })
             .SetCredits(new Credits
             {
-                Enabled = false // remove hyperlink for highchart
+                Enabled = false
             });
             // -------------------- END TOTAL INCOME/EXPENDITURE CHART --------------------
             // ----------------------------------------------------------------------------

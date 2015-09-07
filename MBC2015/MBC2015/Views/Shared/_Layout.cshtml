@@ -26,7 +26,7 @@
                 <ul class="nav navbar-nav">
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
+                    @*<li>@Html.ActionLink("Add Budget", "Create", "Budgets")</li>*@
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false"
                            href="#" data-toggle="dropdown">Users<span class="caret"></span></a>
@@ -37,6 +37,7 @@
                         </ul>
                     </li>
                     <li>@Html.ActionLink("View Budgets", "Index", "Budgets")</li>
+                    
                 </ul>
 
                 @*@Html.Partial("_LoginPartial")*@
@@ -54,6 +55,6 @@
 
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @*<script src="~/Scripts/Highcharts-4.0.1/js/highcharts-all.js"></script>*@
+                @*<script src="~/Scripts/Highcharts-4.0.1/js/highcharts-all.js"></script>*@
 </body>
 </html>
